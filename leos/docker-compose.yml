@@ -5,6 +5,7 @@ services:
   annotate:
     container_name: annotate-container
     image: leos_src
+    network_mode: host
     build:
       context: .
     ports:
@@ -13,12 +14,11 @@ services:
       - leos-volume:/src/
       - leos-script:/script/
     entrypoint: /script/fg-run-annotate.sh
-    networks:
-      - leos
 
   user-repository:
     container_name: user-repository-container
     image: leos_src
+    network_mode: host
     ports:
       - "9095:9095"
     depends_on:
@@ -27,12 +27,11 @@ services:
       - leos-volume:/src/
       - leos-script:/script/
     entrypoint: /script/fg-run-user-repository.sh
-    networks:
-      - leos
 
   repository:
     container_name: repository-container
     image: leos_src
+    network_mode: host
     ports:
       - "9090:9090"
     depends_on:
@@ -41,12 +40,11 @@ services:
       - leos-volume:/src/
       - leos-script:/script/
     entrypoint: /script/fg-run-repository.sh
-    networks:
-      - leos
 
   leos:
     container_name: leos-container
     image: leos_src
+    network_mode: host
     ports:
       - "8080:8080"
     depends_on:
@@ -55,12 +53,11 @@ services:
       - leos-volume:/src/
       - leos-script:/script/
     entrypoint: /script/fg-run-leos.sh
-    networks:
-      - leos
 
   akn4euutil:
     container_name: akn4euutil-container
     image: leos_src
+    network_mode: host
     ports:
       - "9096:9096"
     depends_on:
@@ -69,11 +66,6 @@ services:
       - leos-volume:/src/
       - leos-script:/script/
     entrypoint: /script/fg-run-akn4euutil.sh
-    networks:
-      - leos
-
-networks:
-  leos:
 
 volumes:
   leos-volume:

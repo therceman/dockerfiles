@@ -7,6 +7,8 @@ endif
 ####### Shortcuts
 
 clean_run: install build start
+	echo " -------------- All Services Started -> Watching Leos Service Logs ---------------"
+	docker logs leos-container -f
 
 run: build start
 
