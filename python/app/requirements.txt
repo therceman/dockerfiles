@@ -1,0 +1,7 @@
+###### Requirements with Version Specifiers ######
+waitress == 2.1.1
+datasketch == 1.5.7
+flask == 2.0.3
+
+###### Requirements without Version Specifiers ######
+# waitress - just an example (bad practice)

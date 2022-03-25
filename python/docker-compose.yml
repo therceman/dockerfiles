@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  python:
+    container_name: ${PYTHON_CONTAINER_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/home/myuser
+    ports:
+      - "${PYTHON_EXT_PORT}:${PYTHON_PORT}"
+    env_file:
+      - .env
